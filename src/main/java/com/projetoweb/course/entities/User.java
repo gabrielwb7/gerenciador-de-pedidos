@@ -1,18 +1,18 @@
 package com.projetoweb.course.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 import java.util.Objects;
 
 @Getter
 @Setter
 @Builder
 @Entity
+@Table(name = "tb_user")
 @AllArgsConstructor
 @NoArgsConstructor
 public class User implements Serializable {
@@ -26,6 +26,10 @@ public class User implements Serializable {
     private String email;
     private String phone;
     private String password;
+
+    @OneToMany(mappedBy = "client")
+    @JsonIgnore
+    private List<Order> orders;
 
     @Override
     public boolean equals(Object o) {
