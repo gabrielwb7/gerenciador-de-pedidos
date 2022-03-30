@@ -24,7 +24,7 @@ public class TestConfig implements CommandLineRunner {
     private OrderRepository orderRepository;
 
     @Override
-    public void run(String... args) throws Exception {
+    public void run(String... args) {
         User user = User.builder()
                 .email("maria@email.com")
                 .name("Maria")

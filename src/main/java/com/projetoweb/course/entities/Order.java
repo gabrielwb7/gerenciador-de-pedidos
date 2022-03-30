@@ -1,7 +1,6 @@
 package com.projetoweb.course.entities;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.projetoweb.course.entities.enums.OrderStatus;
 import lombok.*;
 
@@ -16,7 +15,6 @@ import java.time.Instant;
 @Table(name = "tb_order")
 @AllArgsConstructor
 @NoArgsConstructor
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Order implements Serializable {
 
     private static final long serialVersionUID = 1L;
