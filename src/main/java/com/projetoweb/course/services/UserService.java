@@ -2,6 +2,7 @@ package com.projetoweb.course.services;
 
 import com.projetoweb.course.entities.User;
 import com.projetoweb.course.repositories.UserRepository;
+import com.projetoweb.course.services.exceptions.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,8 +20,7 @@ public class UserService {
     }
 
     public User findById(Long id) {
-        Optional<User> user = repository.findById(id);
-        return user.get();
+        return repository.findById(id).orElseThrow(() -> new ResourceNotFoundException(id));
     }
 
     public User insert(User user) {
