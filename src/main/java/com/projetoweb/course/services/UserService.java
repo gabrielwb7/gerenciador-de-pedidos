@@ -41,7 +41,7 @@ public class UserService {
     }
 
     public User update(Long id, User newData) {
-        User user = repository.getById(id);
+        User user = repository.findById(id).orElseThrow(() -> new ResourceNotFoundException(id));
         updateData(user, newData);
         return repository.save(user);
     }
