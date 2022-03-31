@@ -98,7 +98,6 @@ public class Product implements Serializable {
 		Set<Order> orders = items.stream().map(orderItem -> {
 			return orderItem.getOrder();
 		}).collect(Collectors.toSet());
-
 		return orders;
 	}
 	
